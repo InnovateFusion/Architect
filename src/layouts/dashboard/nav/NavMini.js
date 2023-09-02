@@ -39,7 +39,7 @@ export default function NavMini() {
           ...hideScrollbarX,
         }}
       >
-        <Logo sx={{ mx: 'auto', my: 2 }} />
+        {/* <Logo sx={{ mx: 'auto', my: 2 }} /> */}
 
         <NavSectionMini data={navConfig} />
       </Stack>

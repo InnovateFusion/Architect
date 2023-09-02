@@ -6,6 +6,8 @@ import NextLink from 'next/link';
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
 
+import Image from '../../components/image'
+
 // ----------------------------------------------------------------------
 
 const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
@@ -75,13 +77,17 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
     </Box>
   );
 
+  const arc = (
+    <Image src="/assets/icons/home/ic_design.svg" sx={{ mx: 'auto', width: 48, height: 48 }} />
+  ); 
+
   if (disabledLink) {
-    return logo;
+    return arc;
   }
 
   return (
     <Link component={NextLink} href="/" sx={{ display: 'contents' }}>
-      {logo}
+      {arc}
     </Link>
   );
 });

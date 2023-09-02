@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box, Button, AppBar, Toolbar, Container, Link } from '@mui/material';
+import { Box, Button, AppBar, Toolbar, Container, Link, } from '@mui/material';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
@@ -10,6 +10,8 @@ import { bgBlur } from '../../utils/cssStyles';
 // config
 import { HEADER } from '../../config-global';
 // routes
+
+import Image from '../../components/image';
 // import { PATH_DOCS, PATH_MINIMAL_ON_STORE } from '../../routes/paths';
 // components
 import Logo from '../../components/logo';
@@ -59,14 +61,14 @@ export default function Header() {
             underline="none"
             sx={{ ml: 1 }}
           >
-            <Label color="info"> v4.2.0 </Label>
+            <Label color="info"> The Architect</Label>
           </Link>
 
           <Box sx={{ flexGrow: 1 }} />
 
           {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
 
-          <Button variant="contained" target="_blank" rel="noopener" >
+          <Button variant="contained" target="_blank" rel="noopener">
             Purchase Now
           </Button>
 
