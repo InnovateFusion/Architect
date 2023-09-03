@@ -1,5 +1,11 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
+
+
+class Chat(BaseModel):
+    chat: str
+    class Config:
+        arbitrary_types_allowed=True
 
 class UserBase(BaseModel):
     email: str
@@ -29,74 +35,73 @@ class HomeBase(BaseModel):
         arbitrary_types_allowed=True
 
 class HomeCreate(HomeBase):
-    future_proofing: list[str]
-    cultural_religious: list[str]
-    budget_range: str
-    family_size: str
-    security_safety: str
-    outdoor_spaces: str
-    vehicles_parking: str
-    budget_allocation: str
-    home_space: str
-    atmosphere_ambiance: str
-    design_inspirations: str
-    smart_home_technology: str
-    weather_concerns: str
-    construction_phasing: str
+    question1: str
+    question2: str
+    question3: str
+    question4: str
+    question5: str
+    question6: str
+    question7: str
+    question8: str
+    question9: str
+    question10: str
+    question11: str
+    question12: str
+    question13: str
+    question14: str
+    
 
 class HomeUpdate(HomeBase):
-    future_proofing: list[str]
-    cultural_religious: list[str]
-    budget_range: str
-    family_size: str
-    security_safety: str
-    outdoor_spaces: str
-    vehicles_parking: str
-    budget_allocation: str
-    home_space: str
-    atmosphere_ambiance: str
-    design_inspirations: str
-    smart_home_technology: str
-    weather_concerns: str
-    construction_phasing: str
+    question1: str
+    question2: str
+    question3: str
+    question4: str
+    question5: str
+    question6: str
+    question7: str
+    question8: str
+    question9: str
+    question10: str
+    question11: str
+    question12: str
+    question13: str
+    question14: str
 
 
 class BusinessCreate(HomeBase):
-    building_purpose: str
-    total_square_footage: str
-    architectural_style: str
-    sustainability_goals: list[str]
-    number_of_floors: str
-    zoning_constraints: str
-    number_of_occupants: str
-    specialized_spaces_required: str
-    accessibility_requirements: str
-    amenities: str
-    parking_spaces: str
-    interior_exterior_ambiance: str
-    design_inspirations: list[str]
-    technology_integration: str
-    weather_site_challenges: str
-    construction_phasing: str
+    question1: str
+    question2: str
+    question3: str
+    question4: str
+    question5: str
+    question6: str
+    question7: str
+    question8: str
+    question9: str
+    question10: str
+    question11: str
+    question12: str
+    question13: str
+    question14: str
+    question15: str
     
         
 class BusinessUpdate(HomeBase):
-    building_purpose: str
-    total_square_footage: str
-    architectural_style: str
-    sustainability_goals: list[str]
-    number_of_floors: str
-    zoning_constraints: str
-    number_of_occupants: str
-    specialized_spaces_required: str
-    accessibility_requirements: str
-    amenities: str
-    parking_spaces: str
-    interior_exterior_ambiance: str
-    design_inspirations: list[str]
-    technology_integration: str
-    weather_site_challenges: str
-    construction_phasing: str
+    question1: str
+    question2: str
+    question3: str
+    question4: str
+    question5: str
+    question6: str
+    question7: str
+    question8: str
+    question9: str
+    question10: str
+    question11: str
+    question12: str
+    question13: str
+    question14: str
+    question15: str
     
 class Home(HomeBase):
     id: str

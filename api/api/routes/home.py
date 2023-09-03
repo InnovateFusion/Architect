@@ -1,7 +1,9 @@
 from typing import List, Union
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
+from api import common
 from api.common import schemas
+from api.common import summary
 from api.crud import user
 from ..crud import home as crud  
 from api.common.get_db import get_db
@@ -38,6 +40,17 @@ async def read_home(home_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Home not found")
     return db_home
 
+@router.post("/homes/{home_id}/chat")
+async def get_home_chat(home_id: str, chat: schemas.Chat, db: Session = Depends(get_db)):
+    db_home = await crud.get_home(db, home_id=home_id)
+    if db_home is None:
+        raise HTTPException(status_code=404, detail="Home not found")
+    result = await crud.get_home_chat(db=db, home_id=home_id, chat=chat)
+    if result is None:
+        raise HTTPException(status_code=400, detail="Chat not created")
+    return result
+    
+
 @router.get("/users/{user_id}/homes")
 async def read_homes(skip: int = 0, limit: int = 100, user_id: str = None, db: Session = Depends(get_db)):
     result =  await crud.get_homes(db, skip=skip, limit=limit, user_id=user_id)
@@ -67,6 +80,15 @@ async def update_business_home(home_id: str, home: schemas.BusinessUpdate, db: S
         raise HTTPException(status_code=400, detail="Home not updated")
     return response
 
+
+
+@router.get("/homes/{home_id}/image")
+async def get_home_image(home_id: str, db: Session = Depends(get_db)):
+    db_home = await crud.get_home(db, home_id=home_id)
+    if db_home is None:
+        raise HTTPException(status_code=404, detail="Home not found for image")
+    return await crud.get_home_image(db=db, home_id=home_id)
+
 @router.delete("/homes/{home_id}")
 async def delete_home(home_id: str, db: Session = Depends(get_db)):
     db_home = await crud.get_home(db, home_id=home_id)
@@ -79,5 +101,10 @@ async def get_home_summary(home_id: str, db: Session = Depends(get_db)):
     db_home = await crud.get_home(db, home_id=home_id)
     if db_home is None:
         raise HTTPException(status_code=404, detail="Home not found")
-    return await crud.get_home_summary(db=db, home_id=home_id)
+    return await summary.get_home_summary(db=db, home_id=home_id) 
+
+
+
+
+
     

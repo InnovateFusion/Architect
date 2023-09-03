@@ -46,3 +46,5 @@ async def delete_user(user_id: str, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return await crud.delete_user(db=db, user_id=user_id)
+
+

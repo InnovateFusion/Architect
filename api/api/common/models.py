@@ -1,3 +1,4 @@
+import json
 from sqlalchemy import Column, String, ForeignKey,JSON, Enum
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import relationship
@@ -37,6 +38,8 @@ class Home(Base):
     data = Column(JSON, nullable=True)
     context = Column(LONGTEXT, nullable=True)
     user = relationship("User", back_populates="homes")
+    images = Column(JSON, nullable=True)
+    chat = Column(JSON, nullable=True)
 
     def toJSON(self):
         return {
@@ -45,6 +48,7 @@ class Home(Base):
             "home_type": self.home_type,
             "user_id": self.user_id,
             "data": self.data,
+            "images": json.loads(self.images) if self.images is not None else [],
         }
 
     def __repr__(self):
