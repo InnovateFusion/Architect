@@ -44,8 +44,8 @@ Sure, here are one-line descriptions for each environment variable:
 - Other tool might be added based on the situations on development
 
 # Demo Links
-[Design Link](https://www.figma.com/file/jXADel71KkZXyLnb6Wrjgq/Untitled?type=design&node-id=104%3A1071&mode=design&t=sp5S4B9AmIDIXG6d-1)
-[Presentation Link](https://www.canva.com/design/DAFtVcksIZ4/WLb3rAG6nSdbGXYIYar1xQ/edit?utm_content=DAFtVcksIZ4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-[Demonstration Video Link](https://youtu.be/8-76q0IxwJE?si=gCjYeOUTMM0QzZ3f)
-[Prototype Website Link](https://architect-1w5a.onrender.com)
+- [Design Link](https://www.figma.com/file/jXADel71KkZXyLnb6Wrjgq/Untitled?type=design&node-id=104%3A1071&mode=design&t=sp5S4B9AmIDIXG6d-1)
+- [Presentation Link](https://www.canva.com/design/DAFtVcksIZ4/WLb3rAG6nSdbGXYIYar1xQ/edit?utm_content=DAFtVcksIZ4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Demonstration Video Link](https://youtu.be/8-76q0IxwJE?si=gCjYeOUTMM0QzZ3f)
+- [Prototype Website Link](https://architect-1w5a.onrender.com)
 
