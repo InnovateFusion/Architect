@@ -11,8 +11,7 @@
 - npm i OR npm i --legacy-peer-deps
 - npm run dev
 
-#ENV VARAIBLE FOR BACKEND
-
+# ENV VARAIBLE FOR BACKEND
 
 Sure, here are one-line descriptions for each environment variable:
 - OPENAI_API_KEY: For cha with chat gpt
@@ -22,9 +21,11 @@ Sure, here are one-line descriptions for each environment variable:
 - STABILITY_API_KEY: Your Stability API key for authorization to Stability services.
 - DBPATH: For Mysql DataBase
 
-#BACKEND FORLDER
+# BACKEND FORLDER
 - api/crud: For DataBase related issue
 - api/route: For endpoints
 - api/chat: For chat with open api
 - api/common/image: for image generation
+- api/common/model: model of the database
+  
 
