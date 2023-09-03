@@ -8,6 +8,7 @@ import { Box, Typography } from '@mui/material';
 import MainLayout from '../layouts/main';
 // sections
 import {
+  HomeAI,
   HomeHero,
   HomeVideo,
   HomeWork,
@@ -65,6 +66,7 @@ export default function HomePage() {
       >
         <HomeVideo />
         <HomeWork />
+        <HomeAI />
       </Box>
     </>
   );

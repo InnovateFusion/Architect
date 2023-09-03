@@ -1,5 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary, AppBar, Box, Dialog } from '@mui/material';
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import LoadingScreen from '../../components/loading-screen/LoadingScreen';
 import Question from './question';
 // import FormUserDetails from './FormUserDetails';
@@ -21,6 +21,8 @@ import { PageNotFoundIllustration } from '../../assets/illustrations';
 import Iconify from 'src/components/iconify/Iconify';
 import Block from 'src/components/settings/drawer/Block';
 import Header from 'src/layouts/compact/Header';
+import axiosInstance from 'src/utils/axios';
+import Image from 'src/components/image/Image';
 
 const response = {
   status: 'success',
@@ -65,7 +67,21 @@ const response = {
   ],
 };
 
-export default function ResultForm({ response }) {
+export default function ResultForm({ response, homeid = 'eb553069-fec1-4018-a5d3-a76713d420ed' }) {
+  const generate = async () => {
+    const response = await axiosInstance.get(
+      `https://architect-n16u.onrender.com/api/v1/homes/${homeid}/image`
+    );
+    console.log(response.data.images);
+    return response.data.images;
+  };
+
+  const [images, setImages] = useState([0, 1]);
+  useEffect(() => {
+    setImages(generate());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Block
       title="Select one"
@@ -74,6 +90,16 @@ export default function ResultForm({ response }) {
         m: 10,
       }}
     >
+      {images.length > 0 &&
+        images.map((v, i) => (
+          <Image
+            disabledEffect
+            visibleByDefault
+            alt="auth"
+            src={v || '/assets/illustrations/illustration_dashboard.png'}
+            sx={{ maxWidth: 720 }}
+          />
+        ))}
       <Header isOffset />
       <Accordion>
         <AccordionSummary expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}>
@@ -102,7 +128,7 @@ export default function ResultForm({ response }) {
           <li>{response.budget_analysis.suggested_changes}</li>
           <Typography variant="h4">Detailed material cost:</Typography>
           {response.budget_analysis.detailed_material_costs.map((v, i) => (
-            <li>{v}</li>
+            <li key={i}>{v}</li>
           ))}
           <li>Labour Cost: {response.budget_analysis.labor_costs}</li>
         </AccordionDetails>

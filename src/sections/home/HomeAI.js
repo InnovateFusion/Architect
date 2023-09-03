@@ -45,7 +45,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function HomeMinimal() {
+export default function HomeAI() {
   return (
     <StyledRoot>
       <Container component={MotionViewport}>
@@ -79,10 +79,10 @@ export default function HomeMinimal() {
             }}
           >
             <iframe
-              width="853"
-              height="480"
-              src="https://www.youtube.com/embed/-P-ein58laA"
-              title="Sundar Pichai AI AI AI AI AI AI AI Meme"
+              width="953"
+              height="580"
+              src="https://talking-avatar-ten.vercel.app"
+              title="The Architect"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

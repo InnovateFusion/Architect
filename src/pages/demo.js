@@ -211,6 +211,8 @@ export class UserForm extends Component {
     question15: 'D. All of the above',
   };
   data = {};
+  userid = "d00bfa01-0697-401a-88db-b6a6d9320dbf"
+  homeid = ""
 
   analyze = async () => {
     const { step } = this.state;
@@ -219,11 +221,12 @@ export class UserForm extends Component {
     });
     console.log(this.state);
     const response = await axios.post(
-      'https://architect-n16u.onrender.com/api/v1/users/d00bfa01-0697-401a-88db-b6a6d9320dbf/homes/residential',
+      `https://architect-n16u.onrender.com/api/v1/users/${this.userid}/homes/residential`,
       { ...this.state }
     );
     console.log(response);
     this.data = JSON.parse(response.data.data);
+    this.homeid = response.data.id
     console.log(this.data)
     this.setState({
       step: -2,
@@ -233,7 +236,7 @@ export class UserForm extends Component {
   render() {
     const { step } = this.state;
     if (step == -1) return <LoadingScreen />;
-    else if (step == -2) return <ResultForm response={this.data} />;
+    else if (step == -2) return <ResultForm response={this.data} homeid={this.homeid} />;
 
     return (
       <Dialog open fullWidth maxWidth="md">
