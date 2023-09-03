@@ -78,14 +78,11 @@ export default function HomeMinimal() {
               overflow: 'hidden',
             }}
           >
-            <iframe
+            <img
               width="853"
               height="480"
-              src="https://www.youtube.com/embed/-P-ein58laA"
-              title="Sundar Pichai AI AI AI AI AI AI AI Meme"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+              src="https://archccess.com/wp-content/uploads/2023/01/Midjourney-AI-generated-image.jpg"
+              alt="this is a placeholder"
             />
           </Box>
         </Box>
