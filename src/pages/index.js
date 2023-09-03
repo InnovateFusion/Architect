@@ -60,14 +60,6 @@ export default function HomePage() {
         sx={{
           overflow: 'hidden',
           position: 'relative',
-          // HomeDarkMode,
-          // HomeLookingFor,
-          // HomeForDesigner,
-          // HomeColorPresets,
-          // HomePricingPlans,
-          // HomeAdvertisement,
-          // HomeCleanInterfaces,
-          // HomeHugePackElements,
           bgcolor: 'background.default',
         }}
       >

@@ -68,8 +68,8 @@ export default function Header() {
 
           {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
 
-          <Button variant="contained" target="_blank" rel="noopener">
-            Purchase Now
+          <Button variant="contained" target="_blank" rel="#">
+            Design Demo
           </Button>
 
           {!isDesktop && <NavMobile isOffset={isOffset} data={navConfig} />}

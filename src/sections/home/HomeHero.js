@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import { Button, Box, Link, Container, Typography, Stack, Grid, Rating } from '@mui/material';
 // routes
-import { PATH_DASHBOARD, PATH_FIGMA_PREVIEW, PATH_FREE_VERSION } from '../../routes/paths';
+import { PATH_DASHBOARD } from '../../routes/paths';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 // utils
@@ -169,13 +169,12 @@ function Description() {
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().in}>
+      {/* <m.div variants={varFade().in}>
         <Stack
           spacing={0.75}
           direction="row"
           alignItems="center"
           justifyContent="center"
-          sx={{ my: 3 }}
         >
           <Rating readOnly value={4.95} precision={0.1} max={5} />
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -185,14 +184,14 @@ function Description() {
             (99+ reviews)
           </Typography>
         </Stack>
-      </m.div>
+      </m.div> */}
 
       <m.div variants={varFade().in}>
-        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5 }}>
+        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ m: 5 }}>
           <Stack alignItems="center" spacing={2}>
             <Button
               component={NextLink}
-              href={PATH_DASHBOARD.root}
+              href="noreferer"
               color="inherit"
               size="large"
               variant="contained"
@@ -205,7 +204,7 @@ function Description() {
                 },
               }}
             >
-              Live Preview
+              Design Your Home
             </Button>
 
             {/* <Link
@@ -227,8 +226,8 @@ function Description() {
             variant="outlined"
             startIcon={<Iconify icon="eva:external-link-fill" width={24} />}
             target="_blank"
-            rel="noopener"
-            href={PATH_FIGMA_PREVIEW}
+            // rel="noopener"
+            href='/form'
             sx={{ borderColor: 'text.primary' }}
           >
             Design Preview
@@ -286,7 +285,7 @@ function Content() {
             animate={{ y: ['-50%', '-30%'] }}
             transition={transition}
             alt={`hero_${isLight ? 'light' : 'dark'}_2`}
-            src={`/assets/images/home/room.png`}
+            src="/assets/images/home/room.png"
             sx={{ position: 'absolute', buttbot: 20 }}
           />
         </Stack>

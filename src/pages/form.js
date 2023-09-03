@@ -1,7 +1,7 @@
 import { AppBar, Dialog } from '@mui/material';
 import React, { Component } from 'react';
-import LoadingScreen from 'src/components/loading-screen/LoadingScreen';
-import Question from 'src/sections/demo/question';
+import LoadingScreen from '../components/loading-screen/LoadingScreen';
+import Question from '../sections/demo/question';
 // import FormUserDetails from './FormUserDetails';
 // import FormPersonalDetails from './FormPersonalDetails';
 // import Confirm from './Confirm';
@@ -31,7 +31,7 @@ export class UserForm extends Component {
     weather_concerns: 'C. Both',
     construction_phasing: 'C. Not sure',
     interest: '',
-  };
+  }
 
   questions = [
     {
@@ -190,7 +190,7 @@ export class UserForm extends Component {
     const { step } = this.state;
     if(step==0)
       return <LoadingScreen />;
-      
+
     return (
       <Dialog open fullWidth maxWidth="md">
         <Question

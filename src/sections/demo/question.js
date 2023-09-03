@@ -49,13 +49,13 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
         </m.div>
         <Grid
           container
-          display={'flex'}
+          display='flex'
           justifyContent="center"
           sx={{
             textAlign: 'center',
           }}
         >
-          {keyss != 'interest' ? (
+          {keyss !== 'interest' ? (
             options.map((option, index) => (
               <Grid
                 item
@@ -119,11 +119,11 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
 
         <Button
           sx={{ float: 'right', mb: 2 }}
-          onClick={keyss == 'interest' ? analyze : nextStep}
+          onClick={keyss === 'interest' ? analyze : nextStep}
           size="large"
           variant="contained"
         >
-          {keyss == 'interest' ? 'Generate' : 'Next'}
+          {keyss === 'interest' ? 'Generate' : 'Next'}
         </Button>
       </MotionContainer>
     </Box>

@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
 
-import Image from '../../components/image'
+import Image from '../image'
 
 // ----------------------------------------------------------------------
 
