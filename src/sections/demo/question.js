@@ -21,6 +21,7 @@ import { MotionContainer, varBounce } from '../../components/animate';
 // assets
 import { PageNotFoundIllustration } from '../../assets/illustrations';
 import { random } from 'lodash';
+import Logo from 'src/components/logo/Logo';
 
 // -----------------------MotionContainer-----------------------------------------------
 
@@ -44,20 +45,24 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
       <MotionContainer>
         <m.div variants={varBounce().in}>
           <Typography variant="h4" paragraph>
+        <Logo sx={{ m: 3 }} />
             {question}
           </Typography>
         </m.div>
         <Grid
           container
-          display='flex'
+          display="flex"
           justifyContent="center"
           sx={{
             textAlign: 'center',
           }}
         >
-          {keyss !== 'interest' ? (
+          {keyss === 'start' ? (
+            <></>
+          ) : keyss !== 'interest' ? (
             options.map((option, index) => (
               <Grid
+                key={index}
                 item
                 xs={12}
                 md={6}
@@ -123,7 +128,7 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
           size="large"
           variant="contained"
         >
-          {keyss === 'interest' ? 'Generate' : 'Next'}
+          {keyss === 'start' ? 'Get Started' : keyss === 'interest' ? 'Generate' : 'Next'}
         </Button>
       </MotionContainer>
     </Box>

@@ -82,6 +82,7 @@ const StyledEllipseBottom = styled('div')(({ theme }) => ({
   position: 'absolute',
   height: 400,
   bottom: -200,
+  zIndex: -100,
   left: '10%',
   right: '10%',
   borderRadius: '50%',
@@ -191,7 +192,7 @@ function Description() {
           <Stack alignItems="center" spacing={2}>
             <Button
               component={NextLink}
-              href="noreferer"
+              href="/dashboard"
               color="inherit"
               size="large"
               variant="contained"
@@ -204,7 +205,7 @@ function Description() {
                 },
               }}
             >
-              Design Your Home
+              Get Started
             </Button>
 
             {/* <Link
@@ -226,28 +227,14 @@ function Description() {
             variant="outlined"
             startIcon={<Iconify icon="eva:external-link-fill" width={24} />}
             target="_blank"
-            // rel="noopener"
-            href='/form'
+            rel="noopener"
+            href='/demo'
             sx={{ borderColor: 'text.primary' }}
           >
-            Design Preview
+            Design Your Home
           </Button>
         </Stack>
       </m.div>
-
-      {/* <Stack spacing={3} sx={{ textAlign: 'center', opacity: 0.48 }}>
-        <m.div variants={varFade().in}>
-          <Typography variant="overline">Available For</Typography>
-        </m.div>
-
-        <Stack spacing={2} direction="row" justifyContent="center">
-          {['sketch', 'figma', 'js', 'ts', 'nextjs'].map((platform) => (
-            <m.div key={platform} variants={varFade().in}>
-              <SvgColor src={`/assets/icons/platforms/ic_${platform}.svg`} />
-            </m.div>
-          ))}
-        </Stack>
-      </Stack> */}
     </StyledDescription>
   );
 }

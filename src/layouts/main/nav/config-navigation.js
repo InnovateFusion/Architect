@@ -13,14 +13,14 @@ const navConfig = [
     path: '/',
   },
   {
-    title: 'Home',
+    title: 'Demo',
     icon: <Iconify icon="eva:home-fill" />,
-    path: '/',
+    path: '/demo',
   },
   {
-    title: 'Home',
+    title: 'Form',
     icon: <Iconify icon="eva:home-fill" />,
-    path: '/',
+    path: '/form',
   },
 ];
 
