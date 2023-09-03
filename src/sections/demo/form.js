@@ -24,6 +24,11 @@ import Header from 'src/layouts/compact/Header';
 import axiosInstance from 'src/utils/axios';
 import Image from 'src/components/image/Image';
 
+const Images = [
+  'https://res.cloudinary.com/dtghsmx0s/image/upload/v1693751132/u1fzsnehmzr2cvk34e7h.png',
+  'http://res.cloudinary.com/dtghsmx0s/image/upload/v1693751134/zmns7rzonxeht9tw4kgq.jpg',
+];
+
 const response = {
   status: 'success',
   feasibility: 'yes',
@@ -69,18 +74,12 @@ const response = {
 
 export default function ResultForm({ response, homeid = 'eb553069-fec1-4018-a5d3-a76713d420ed' }) {
   const generate = async () => {
-    const response = await axiosInstance.get(
-      `https://architect-n16u.onrender.com/api/v1/homes/${homeid}/image`
-    );
-    console.log(response.data.images);
-    return response.data.images;
-  };
-
+  
   const [images, setImages] = useState([0, 1]);
   useEffect(() => {
     setImages(generate());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [images]);
 
   return (
     <Block
@@ -90,16 +89,25 @@ export default function ResultForm({ response, homeid = 'eb553069-fec1-4018-a5d3
         m: 10,
       }}
     >
-      {images.length > 0 &&
-        images.map((v, i) => (
-          <Image
-            disabledEffect
-            visibleByDefault
-            alt="auth"
-            src={v || '/assets/illustrations/illustration_dashboard.png'}
-            sx={{ maxWidth: 720 }}
-          />
-        ))}
+{Image.map((v, i) => (
+  <Image
+    disabledEffect
+    visibleByDefault
+    alt="auth"
+    src={v}
+    sx={{ maxWidth: 720 }}
+  />
+)) : (
+  <Image
+    disabledEffect
+    visibleByDefault
+    alt="auth"
+    src={'/assets/illustrations/illustration_dashboard.png'}
+    sx={{ maxWidth: 720 }}
+  />
+)}
+
+
       <Header isOffset />
       <Accordion>
         <AccordionSummary expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}>
