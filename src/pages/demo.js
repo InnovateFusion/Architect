@@ -1,7 +1,9 @@
 import { AppBar, Dialog } from '@mui/material';
-import React, { Component } from 'react';
+import React, { Component, useCallback } from 'react';
 import LoadingScreen from '../components/loading-screen/LoadingScreen';
 import Question from '../sections/demo/question';
+import axios from '../utils/axios';
+import ResultForm from '../sections/demo/form';
 // import FormUserDetails from './FormUserDetails';
 // import FormPersonalDetails from './FormPersonalDetails';
 // import Confirm from './Confirm';
@@ -10,23 +12,23 @@ import Question from '../sections/demo/question';
 export class UserForm extends Component {
   state = {
     step: 0,
-    title: 'sdds',
+    title: 'Electical Engineering',
     type: 'home',
-    future_proofing: [],
-    cultural_religious: [],
-    budget_range: 'C. $100,000 - $250,000',
-    family_size: 'B. 1-3',
-    security_safety: 'A. Security System',
-    outdoor_spaces: 'C. Playground',
-    vehicles_parking: 'D. 3',
-    budget_allocation: 'B. Interior Finish',
-    home_space: 'C. 500+ square meters',
-    atmosphere_ambiance: 'A. Cozy',
-    design_inspirations: 'B. Vintage',
-    smart_home_technology: 'A. Security',
-    weather_concerns: 'C. Both',
-    construction_phasing: 'C. Not sure',
-    interest: '',
+    question1: 'A. Office Space',
+    question2: 'C. 50,000 - 100,000 sq ft',
+    question3: 'A. Modern',
+    question4: 'B. Energy Efficiency',
+    question5: 'C. 4-6 Floors',
+    question6: "D. Local authorities' approval required",
+    question7: 'B. 50-200',
+    question8: 'C. Mix of specialized and standard spaces',
+    question9: 'B. Basic accessibility features',
+    question10: 'B. Basic amenities',
+    question11: 'C. Sufficient parking for employees and visitors',
+    question12: 'C. Contemporary and Open',
+    question13: 'A. Brand Colors and Logo',
+    question14: 'D. All of the above',
+    interest: 'none',
     start: '',
   };
 
@@ -45,9 +47,9 @@ export class UserForm extends Component {
     },
     {
       question_number: 1,
-      key: 'future_proofing',
+      key: 'question1',
       question:
-        "Are there specific future-proofing considerations you'd like to address in the design to accommodate changing needs over time? (Select all that apply)",
+        "Are there specific future-proofing considerations you'd like to address in the design to accommodate changing needs over time?",
       options: [
         'A. Aging in place',
         'B. Accommodating a home office',
@@ -57,9 +59,9 @@ export class UserForm extends Component {
     },
     {
       question_number: 2,
-      key: 'cultural_religious',
+      key: 'question2',
       question:
-        'Are there any cultural or religious considerations that should be integrated into the design? (Select all that apply)',
+        'Are there any cultural or religious considerations that should be integrated into the design?',
       options: [
         'A. Prayer Room',
         'B. Cultural Symbolism',
@@ -69,7 +71,7 @@ export class UserForm extends Component {
     },
     {
       question_number: 3,
-      key: 'budget_range',
+      key: 'question3',
       question: 'What is the budget range you are considering for your residential project?',
       options: [
         'A. $10,000 - $50,000',
@@ -80,40 +82,40 @@ export class UserForm extends Component {
     },
     {
       question_number: 4,
-      key: 'family_size',
+      key: 'question4',
       question: 'How many family members will be residing in the home?',
       options: ['A. 0', 'B. 1-3', 'C. 4 - 7', 'D. 8+'],
     },
     {
       question_number: 5,
-      key: 'security_safety',
+      key: 'question5',
       question: 'Do you have any specific security or safety requirements for your home?',
       options: ['A. Security System', 'B. Childproofing', 'C. Both', 'D. None'],
     },
     {
       question_number: 6,
-      key: 'outdoor_spaces',
+      key: 'question6',
       question:
         'Do you require any outdoor spaces like a garden, patio, or playground for children?',
       options: ['A. Garden', 'B. Patio', 'C. Playground', 'D. None'],
     },
     {
       question_number: 7,
-      key: 'vehicles_parking',
+      key: 'question7',
       question:
         'How many vehicles do you own, and do you need a garage or parking spaces for them?',
       options: ['A. No', 'B. 1', 'C. 2', 'D. 3'],
     },
     {
       question_number: 8,
-      key: 'budget_allocation',
+      key: 'question8',
       question:
         'How would you prioritize budget allocation across different aspects of the project?',
       options: ['A. Construction', 'B. Interior Finish', 'C. Landscaping', 'D. Equal allocation'],
     },
     {
       question_number: 9,
-      key: 'home_space',
+      key: 'question9',
       question: 'What is the desired size of your home space in square meters?',
       options: [
         'A. 100 square meters',
@@ -124,35 +126,35 @@ export class UserForm extends Component {
     },
     {
       question_number: 10,
-      key: 'atmosphere_ambiance',
+      key: 'question10',
       question:
         'How would you describe your desired atmosphere or ambiance for the interior and exterior spaces?',
       options: ['A. Cozy', 'B. Minimalist', 'C. Elegant', 'D. Modern'],
     },
     {
       question_number: 11,
-      key: 'design_inspirations',
+      key: 'question11',
       question:
         "Are there any specific design inspirations, such as a favorite vacation destination or art movement, that you'd like to draw upon for interior design?",
       options: ['A. Color Picker', 'B. Vintage', 'C. Contemporary', 'D. Natural'],
     },
     {
       question_number: 12,
-      key: 'smart_home_technology',
+      key: 'question12',
       question:
-        'Are you open to incorporating smart home technology for automation and control of various home systems? (Select all that apply)',
+        'Are you open to incorporating smart home technology for automation and control of various home systems?',
       options: ['A. Security', 'B. Lighting', 'C. Entertainment', 'D. All of the above'],
     },
     {
       question_number: 13,
-      key: 'weather_concerns',
+      key: 'question13',
       question:
         'Are there any weather-related concerns or considerations for your project, such as extreme temperatures or heavy rainfall during certain seasons?',
       options: ['A. Extreme Temperature', 'B. Heavy Raining', 'C. Both', 'D. None'],
     },
     {
       question_number: 14,
-      key: 'construction_phasing',
+      key: 'question14',
       question:
         'Have you thought about construction phasing if you need to occupy parts of the home before the entire project is completed?',
       options: ['A. YES', 'B. NO', 'C. Not sure', 'D. Partial occupancy planned'],
@@ -189,17 +191,49 @@ export class UserForm extends Component {
     if (key !== 'interest') this.nextStep();
   };
 
-  analyze = () => {
-    console.log(this.state);
+  business = {
+    title: 'Electical Engineering',
+    type: 'business',
+    question1: 'A. Office Space',
+    question2: 'C. 50,000 - 100,000 sq ft',
+    question3: 'A. Modern',
+    question4: 'B. Energy Efficiency',
+    question5: 'C. 4-6 Floors',
+    question6: "D. Local authorities' approval required",
+    question7: 'B. 50-200',
+    question8: 'C. Mix of specialized and standard spaces',
+    question9: 'B. Basic accessibility features',
+    question10: 'B. Basic amenities',
+    question11: 'C. Sufficient parking for employees and visitors',
+    question12: 'C. Contemporary and Open',
+    question13: 'A. Brand Colors and Logo',
+    question14: 'D. All of the above',
+    question15: 'D. All of the above',
+  };
+  data = {};
+
+  analyze = async () => {
     const { step } = this.state;
     this.setState({
       step: -1,
+    });
+    console.log(this.state);
+    const response = await axios.post(
+      'https://architect-n16u.onrender.com/api/v1/users/d00bfa01-0697-401a-88db-b6a6d9320dbf/homes/residential',
+      { ...this.state }
+    );
+    console.log(response);
+    this.data = JSON.parse(response.data.data);
+    console.log(this.data)
+    this.setState({
+      step: -2,
     });
   };
 
   render() {
     const { step } = this.state;
     if (step == -1) return <LoadingScreen />;
+    else if (step == -2) return <ResultForm response={this.data} />;
 
     return (
       <Dialog open fullWidth maxWidth="md">

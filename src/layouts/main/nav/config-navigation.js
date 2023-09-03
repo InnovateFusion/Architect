@@ -16,12 +16,7 @@ const navConfig = [
     title: 'Demo',
     icon: <Iconify icon="eva:home-fill" />,
     path: '/demo',
-  },
-  {
-    title: 'Form',
-    icon: <Iconify icon="eva:home-fill" />,
-    path: '/form',
-  },
+  }
 ];
 
 export default navConfig;

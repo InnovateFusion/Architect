@@ -45,7 +45,7 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
       <MotionContainer>
         <m.div variants={varBounce().in}>
           <Typography variant="h4" paragraph>
-        <Logo sx={{ m: 3 }} />
+            <Logo sx={{ m: 3 }} />
             {question}
           </Typography>
         </m.div>
@@ -64,7 +64,7 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
               <Grid
                 key={index}
                 item
-                xs={12}
+                // xs={12}
                 md={6}
                 gap={20}
                 sx={{ mb: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
@@ -79,6 +79,7 @@ export default function Question({ analyze, keyss, question, options, nextStep, 
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
+                        flexDirection: { xs: 'column', md: 'row' },
                       }}
                       onClick={(e) => {
                         handleChange(keyss, option);
