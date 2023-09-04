@@ -1,5 +1,7 @@
 # THE ARCHITECT By InnovateFusion for A2SV Generative AI Hackaton 
 
+![Landing page](https://res.cloudinary.com/dbyn25cyp/image/upload/v1693811962/Screenshot_from_2023-09-04_10-16-58_xjnbpa.png)
+
 ## Introduction
 
 Welcome to The Architects Platform! This repository provides an overview and resources for our innovative platform that revolutionizes the world of architecture and design. Whether you're a seasoned architect, a design enthusiast, or simply curious, you've come to the right place.
@@ -7,6 +9,8 @@ Welcome to The Architects Platform! This repository provides an overview and res
 ## What is The Architects Platform?
 
 The Architects Platform is a cutting-edge solution designed to address the challenges and enhance the capabilities of architects and designers. It's an AI-powered platform that empowers professionals and enthusiasts in the field of architecture and design by offering a wide range of features and tools. The Architect is a fine tuned assistant for Architects that assists the architectural development from idea generation to final design product.
+
+[<img src="https://res.cloudinary.com/dbyn25cyp/image/upload/v1693812596/Screenshot_from_2023-09-04_10-29-43_hxxelh.png" width="95%">](https://www.youtube.com/watch?v=8-76q0IxwJE "The Architect")
 
 ## Key Features
 
@@ -69,4 +73,12 @@ Sure, here are one-line descriptions for each environment variable:
 - [Presentation Link](https://www.canva.com/design/DAFtVcksIZ4/WLb3rAG6nSdbGXYIYar1xQ/edit?utm_content=DAFtVcksIZ4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - [Demonstration Video Link](https://youtu.be/8-76q0IxwJE?si=gCjYeOUTMM0QzZ3f)
 - [Prototype Website Link](https://architect-1w5a.onrender.com)
+
+# Some of The Architects Designs
+![Design 0](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693751132/u1fzsnehmzr2cvk34e7h.png)
+![Design 1](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693783897/jiyos6rdrztlimker9uj.png)
+![Design 2](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693810753/w0yw39rovamswfdltzp6.png)
+![Design 3](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693749009/bo2wtx48jcdtkrtubsfy.png)
+![Design 4](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693751856/kk3fiu6qhe4gal7vrtxq.png)
+![Design 5](https://res.cloudinary.com/dtghsmx0s/image/upload/v1693751134/zmns7rzonxeht9tw4kgq.jpg)
 
