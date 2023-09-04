@@ -8,25 +8,6 @@ import { MotionViewport, varFade } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 
-const CARDS = [
-  {
-    icon: ' /assets/icons/home/ic_make_brand.svg',
-    title: 'Branding',
-    description: 'Consistent design makes it easy to brand your own.',
-  },
-  {
-    icon: ' /assets/icons/home/ic_design.svg',
-    title: 'UI & UX Design',
-    description:
-      'The kit is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.',
-  },
-  {
-    icon: ' /assets/icons/home/ic_development.svg',
-    title: 'Development',
-    description: 'Easy to customize and extend, saving you time and money.',
-  },
-];
-
 const StyledRoot = styled('div')(({ theme }) => ({
   padding: theme.spacing(10, 0),
   [theme.breakpoints.up('md')]: {
@@ -58,13 +39,13 @@ export default function HomeMinimal() {
         >
           <m.div variants={varFade().inUp}>
             <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-              The Architect
+              The Architect Produces
             </Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2">
-              Revolutionary Design <br /> System
+              Impresive Designs
             </Typography>
           </m.div>
         </Stack>
@@ -78,14 +59,11 @@ export default function HomeMinimal() {
               overflow: 'hidden',
             }}
           >
-            <iframe
+            <img
               width="853"
               height="480"
-              src="https://www.youtube.com/embed/8-76q0IxwJE"
-              title="The Architect - Generative AI For Africa Hackathon by Innovate Fussion"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+              src="https://archccess.com/wp-content/uploads/2023/01/Midjourney-AI-generated-image.jpg"
+              alt="this is a placeholder"
             />
           </Box>
         </Box>

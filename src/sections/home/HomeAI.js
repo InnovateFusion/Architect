@@ -58,13 +58,13 @@ export default function HomeAI() {
         >
           <m.div variants={varFade().inUp}>
             <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-              Minimal UI
+              Easy Communication
             </Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2">
-              Revolutionary Design <br /> System
+              Artificial Intelligence <br /> Assistant
             </Typography>
           </m.div>
         </Stack>

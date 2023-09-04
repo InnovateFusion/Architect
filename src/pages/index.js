@@ -10,6 +10,7 @@ import MainLayout from '../layouts/main';
 import {
   HomeAI,
   HomeHero,
+  HomePhoto,
   HomeVideo,
   HomeWork,
 } from '../sections/home';
@@ -50,7 +51,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title> The starting point for your next project | Minimal UI</title>
+        <title> The Architect AI</title>
       </Head>
 
       {progress}
@@ -67,6 +68,7 @@ export default function HomePage() {
         <HomeVideo />
         <HomeWork />
         <HomeAI />
+        <HomePhoto />
       </Box>
     </>
   );

@@ -27,60 +27,10 @@ import Image from 'src/components/image/Image';
 const Images = [
   'https://res.cloudinary.com/dtghsmx0s/image/upload/v1693751132/u1fzsnehmzr2cvk34e7h.png',
   'http://res.cloudinary.com/dtghsmx0s/image/upload/v1693751134/zmns7rzonxeht9tw4kgq.jpg',
+  'https://res.cloudinary.com/dtghsmx0s/image/upload/v1693759764/undjrkq5fttpps5tutyz.png',
 ];
 
-const response = {
-  status: 'success',
-  feasibility: 'yes',
-  home_appearance: {
-    interior_style: 'Cozy',
-    exterior_style: 'Vintage',
-    color_palette: 'Warm Tones',
-    architectural_features: 'Traditional design with ornate details and elements',
-    numberOfclass: '4',
-    numberOffloor: '2',
-  },
-  budget_analysis: {
-    estimated_budget: '$300,000',
-    budget_allocation: [
-      'Construction: $100,000',
-      'Interior Finish: $90,000',
-      'Landscaping: $60,000',
-      'Equal allocation: $50,000',
-    ],
-    suggested_changes: '',
-    detailed_material_costs: ['steel_bar: $30,000', 'concrete: $50,000', 'wood: $60,000', 'others'],
-    labor_costs: '$100,000',
-  },
-  timeline_analysis: {
-    estimated_timeline: '18 months',
-    phasing_details: {
-      description: 'The project can be divided into 6 phases for 6 occupations.',
-      phases: [
-        'Phase 1: Foundation and framing',
-        'Phase 2: Roofing and exterior walls',
-        'Phase 3: Interior walls and flooring',
-        'Phase 4: Electrical and plumbing',
-        'Phase 5: Interior finishes',
-        'Phase 6: Landscaping and final touches',
-      ],
-    },
-  },
-  recommendations: [
-    'Consider incorporating energy-efficient features and materials for long-term cost savings.',
-    'Explore options for integrating smart home technology for convenience and control.',
-  ],
-};
-
 export default function ResultForm({ response, homeid = 'eb553069-fec1-4018-a5d3-a76713d420ed' }) {
-  const generate = async () => {
-  
-  const [images, setImages] = useState([0, 1]);
-  useEffect(() => {
-    setImages(generate());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images]);
-
   return (
     <Block
       title="Select one"
@@ -89,26 +39,11 @@ export default function ResultForm({ response, homeid = 'eb553069-fec1-4018-a5d3
         m: 10,
       }}
     >
-{Image.map((v, i) => (
-  <Image
-    disabledEffect
-    visibleByDefault
-    alt="auth"
-    src={v}
-    sx={{ maxWidth: 720 }}
-  />
-)) : (
-  <Image
-    disabledEffect
-    visibleByDefault
-    alt="auth"
-    src={'/assets/illustrations/illustration_dashboard.png'}
-    sx={{ maxWidth: 720 }}
-  />
-)}
-
-
       <Header isOffset />
+      <Box sx={{ display: 'flex', flexDirection:'row', justifyContent:'space-evenly' }}>
+        <Image disabledEffect visibleByDefault alt="auth" src={Images[0]} sx={{ maxWidth: 520 }} />
+        <Image disabledEffect visibleByDefault alt="auth" src={Images[2]} sx={{ maxWidth: 520 }} />
+      </Box>
       <Accordion>
         <AccordionSummary expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}>
           <Typography variant="h3">Home Appearance</Typography>
